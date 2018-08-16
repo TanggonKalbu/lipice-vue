@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Notifications from 'vue-notification'
+import velocity      from 'velocity-animate'
 
 Vue.config.productionTip = false
-
+Vue.use(Notifications, { velocity })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
