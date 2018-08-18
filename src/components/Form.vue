@@ -14,7 +14,11 @@
       <div class="form-group row">
         <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
         <div class="col-sm-9">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="namaLengkap" required>
+=======
+          <input  type="text" class="form-control" id="namaLengkap" v-model="kontestan.namalengkap" >
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
@@ -22,6 +26,7 @@
       <div class="form-group row">
       <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
         <div class="form-group col-md-3">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="kota" placeholder="Kota" required>
         </div>
         <div class="form-group col-md-1">
@@ -29,6 +34,15 @@
         </div>
         <div class="form-group col-md-2">
           <select id="inputState" class="form-control" required>
+=======
+          <input type="text" v-model="kontestan.tempatlahir" class="form-control" id="kota" placeholder="Kota">
+        </div>
+        <div class="form-group col-md-1">
+          <input type="number" v-model="kontestan.tgllahir" class="form-control" id="tgl" placeholder="Tanggal">
+        </div>
+        <div class="form-group col-md-2">
+          <select v-model="kontestan.bulanlahir" id="inputState" class="form-control">
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
             <option selected>Bulan</option>
             <option>Januari</option>
             <option>Februari</option>
@@ -45,39 +59,59 @@
           </select>
         </div>
         <div class="form-group col-md-2">
+<<<<<<< HEAD
           <input type="number" class="form-control" id="tahun" placeholder="Tahun" required>
+=======
+          <input v-model="kontestan.tahunlahir" type="number" class="form-control" id="tahun" placeholder="Tahun">
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
       <div class="form-group row">
         <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
         <div class="col-sm-9">
+<<<<<<< HEAD
           <input type="number" class="form-control" id="telp" required>
+=======
+          <input v-model="kontestan.notelp" type="number" class="form-control" id="telp">
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
       <div class="form-group row">
         <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
         <div class="col-sm-9">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="ig" required>
+=======
+          <input type="text" v-model="kontestan.linkig" class="form-control" id="ig">
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
       <div class="form-group row">
         <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL) <b style="color:red;">*</b></label>
         <div class="col-sm-9">
+<<<<<<< HEAD
           <input type="text" class="form-control" id="fb" >
+=======
+          <input v-model="kontestan.linkfb" type="text" class="form-control" id="fb">
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE <b style="color:red;">*</b></label>
         <div class="col-sm-9"> 
+<<<<<<< HEAD
           <textarea class="form-control" rows="5" id="comment" required></textarea>
+=======
+          <textarea class="form-control" v-model="kontestan.alasan" rows="5" id="comment"></textarea>
+>>>>>>> cde17ce90ea7181616de555b1afe8d34cd6ddbbf
         </div>
       </div>
 
-      <button type="button" class="btn btn-warning warn btn-lg">Submit</button>
+      <button type="button" class="btn btn-warning warn btn-lg" @click="addkontestan" >Submit</button>
     
     </form>
 
@@ -86,8 +120,52 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: "Form"
+  name: "Tagihin",
+  data() {
+    return {
+      kontestan: {
+        namalengkap: "",
+        tempatlahir: "",
+        tgllahir: "",
+        bulanlahir: "",
+        tahunlahir: "",
+        notelp: "",
+        linkig: "",
+        linkfb: "",
+        alasan: "",
+      }
+    };
+  },
+  methods: {
+    addkontestan: function() {
+      let newkontestan = {
+        namalengkap : this.kontestan.namalengkap,
+        tempatlahir : this.kontestan.tempatlahir,
+        tgllahir : this.kontestan.tgllahir,
+        bulanlahir : this.kontestan.bulanlahir,
+        tahunlahir :  this.kontestan.tahunlahir,
+        notelp : this.kontestan.notelp,
+        linkig : this.kontestan.linkig,
+        linkfb : this.kontestan.linkfb,
+        alasan : this.kontestan.alasan
+      
+     
+      };
+    
+        axios.post("/api/add_kontestan", newkontestan).then(response => {
+            this.$notify({
+            group: 'foo',
+            type: 'success',
+            title: 'Register',
+            text: 'Registrasimu Berhasil !'
+            });
+          });
+      
+      
+    }
+  }
 };
 </script>
 
