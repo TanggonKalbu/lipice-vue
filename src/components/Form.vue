@@ -14,7 +14,7 @@
       <div class="form-group row">
         <label for="namaLengkap" class="col-sm-3 col-form-label">NAMA LENGKAP <b style="color:red;">*</b></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="namaLengkap">
+          <input type="text" class="form-control" id="namaLengkap" required>
         </div>
       </div>
 
@@ -22,13 +22,13 @@
       <div class="form-group row">
       <label for="ttl" class="col-sm-3 col-form-label">TEMPAT TANGGAL LAHIR <b style="color:red;">*</b></label>
         <div class="form-group col-md-3">
-          <input type="text" class="form-control" id="kota" placeholder="Kota">
+          <input type="text" class="form-control" id="kota" placeholder="Kota" required>
         </div>
         <div class="form-group col-md-1">
-          <input type="number" class="form-control" id="tgl" placeholder="Tanggal">
+          <input type="number" class="form-control" id="tgl" placeholder="Tanggal" required>
         </div>
         <div class="form-group col-md-2">
-          <select id="inputState" class="form-control">
+          <select id="inputState" class="form-control" required>
             <option selected>Bulan</option>
             <option>Januari</option>
             <option>Februari</option>
@@ -45,35 +45,35 @@
           </select>
         </div>
         <div class="form-group col-md-2">
-          <input type="number" class="form-control" id="tahun" placeholder="Tahun">
+          <input type="number" class="form-control" id="tahun" placeholder="Tahun" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="telp" class="col-sm-3 col-form-label">NO TELEPON <b style="color:red;">*</b></label>
         <div class="col-sm-9">
-          <input type="number" class="form-control" id="telp">
+          <input type="number" class="form-control" id="telp" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="ig" class="col-sm-3 col-form-label">LINK AKUN INSTAGRAM <b style="color:red;">*</b></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="ig">
+          <input type="text" class="form-control" id="ig" required>
         </div>
       </div>
 
       <div class="form-group row">
         <label for="fb" class="col-sm-3 col-form-label">LINK AKUN FACEBOOK (OPTIONAL) <b style="color:red;">*</b></label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="fb">
+          <input type="text" class="form-control" id="fb" >
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-3" for="comment">ALASAN MENGIKUTI #LIPICE7DAYSCHALLENGE <b style="color:red;">*</b></label>
         <div class="col-sm-9"> 
-          <textarea class="form-control" rows="5" id="comment"></textarea>
+          <textarea class="form-control" rows="5" id="comment" required></textarea>
         </div>
       </div>
 
@@ -92,8 +92,6 @@ export default {
 </script>
 
 <style>
-* {
-}
 .box {
   padding: 10px;
 }
